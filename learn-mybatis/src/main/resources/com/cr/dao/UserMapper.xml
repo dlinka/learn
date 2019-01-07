@@ -5,7 +5,7 @@
 <mapper namespace="com.cr.dao.UserMapper">
 
     <select id="selectUser" resultType="User">
-        select * from user where id = #{uid}
+        select id as uid, name, nick_name from user where id = #{uid}
     </select>
 
     <insert id="addUser" useGeneratedKeys="true" keyProperty="uid">
