@@ -7,9 +7,6 @@ public class LearnLocalDate {
 
     public static void main(String[] args) {
 
-        /**
-         * 构造LocalDate
-         */
         LocalDate localDate1 = LocalDate.now();
         LocalDate localDate2 = LocalDate.of(2018, 9, 9);
         LocalDate localDate3 = LocalDateTime.of(2018, 9, 9, 9, 9, 9).toLocalDate();

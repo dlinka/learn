@@ -6,9 +6,6 @@ public class LearnZoneId {
 
     public static void main(String[] args) {
 
-        /**
-         * 构造ZoneId
-         */
         ZoneId zoneId1 = ZoneId.systemDefault();
         ZoneId zoneId2 = ZoneId.of("GMT+08:00");
         ZoneId zoneId3 = ZoneId.of("Asia/Shanghai");
