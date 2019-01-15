@@ -1,22 +1,35 @@
 package com.cr.dao;
 
 import com.cr.entity.User;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+import java.util.Map;
+
 public interface UserMapper {
 
-    User selectUser(int uid);
+    User selectUserById(int userId);
 
-    @Select("select name from User where id = #{id}")
-    String selectUserName(int uid);
+    List<User> selectUserByCompanyId(int companyId);
+
+    Map<String, Object> selectMapUser(int userId);
+
+    List<User> selectUsers();
+
+    @MapKey("userId")
+    Map<Integer, User> selectMapUsers();
+
+    @Select("select name from User where user_id = #{userId}")
+    String selectUserName(int userId);
 
     int addUser(User user);
 
     boolean updateUser(User user);
 
-    boolean updateUserNickName(@Param("uid") int uid, @Param("nickName") String nickName);
+    boolean updateUserNickName(@Param("userId") int userId, @Param("nickName") String nickName);
 
-    void deleteUser(int uid);
+    void deleteUser(int userId);
 
 }

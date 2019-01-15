@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 
-    private int uid;
+    private int userId;
     private String name;
     private String nickName;
+    private Company company;
+    private City city;
 
 }

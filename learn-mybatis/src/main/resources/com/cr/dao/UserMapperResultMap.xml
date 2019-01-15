@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cr.dao.UserMapperResultMap">
+
+    <resultMap id="ResultMapAssociation" type="User">
+        <id column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="nick_name" property="nickName"/>
+        <association property="company" javaType="Company">
+            <id column="company_id" property="companyId"/>
+            <result column="company_name" property="companyName"/>
+        </association>
+        <association property="city" javaType="City">
+            <id column="city_id" property="cityId"/>
+            <result column="city_name" property="cityName"/>
+        </association>
+    </resultMap>
+
+    <select id="selectResultMapAssociation" resultMap="ResultMapAssociation">
+        select user_id, name, nick_name, u.company_id as company_id, company_name, u.city_id as city_id, city_name
+        from user as u
+        inner join company as c1 on u.company_id = c1.company_id
+        inner join city as c2 on u.city_id = c2.city_id
+        where u.user_id = #{userId}
+    </select>
+
+    <resultMap id="ResultMapAssociationWithStep" type="User">
+        <id column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="nick_name" property="nickName"/>
+        <association property="company" select="com.cr.dao.CompanyMapper.selectCompanyById" column="company_id"/>
+        <association property="city" select="com.cr.dao.CityMapper.selectCityById" column="city_id"/>
+    </resultMap>
+
+    <select id="selectResultMapAssociationWithStep" resultMap="ResultMapAssociationWithStep">
+        select * from user where user_id = #{userId}
+    </select>
+
+</mapper>
