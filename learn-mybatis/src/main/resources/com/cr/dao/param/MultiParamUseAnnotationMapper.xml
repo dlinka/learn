@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cr.dao.param.MultiParamUseAnnotationMapper">
+
+    <!--
+        第一个值:#{注解值|param1}
+        第二个值:#{1|param2}
+     -->
+    <select id="selectUser1" resultType="User">
+        select * from user where user_id = #{userId} and name = #{1}
+    </select>
+
+    <!--
+        第一个值:#{0|param1}
+        第二个值:#{注解值|param2}
+     -->
+    <select id="selectUser2" resultType="User">
+        select * from user where user_id = #{0} and company_id = #{company.companyId}
+    </select>
+
+    <!--
+        第一个值:#{注解值|param1}
+        第二个值:#{注解值|param2}
+     -->
+    <select id="selectUser3" resultType="User">
+        select * from user where user_id = #{userId} and company_id = #{company.companyId}
+    </select>
+
+</mapper>
