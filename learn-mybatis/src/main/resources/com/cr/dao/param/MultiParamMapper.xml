@@ -14,4 +14,9 @@
         select * from user where user_id = #{param1} and company_id = #{1.companyId}
     </select>
 
+    <!-- Available parameters are [0, 1, param1, param2] -->
+    <select id="selectUser3" resultType="User">
+        select * from user where user_id = #{param1[0]} and name = #{1}
+    </select>
+
 </mapper>
