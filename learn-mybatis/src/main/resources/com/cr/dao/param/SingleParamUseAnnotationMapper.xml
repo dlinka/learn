@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cr.dao.param.SingleParamUseAnnotationMapper">
+
+    <!-- 简单:#{注解值|param1} -->
+    <select id="selectUserById" resultType="User">
+        select * from user where user_id = #{userId}
+    </select>
+
+    <!-- String:#{注解值|param1} -->
+    <select id="selectUserByName" resultType="User">
+        select * from user where name like #{name}
+    </select>
+
+    <!-- 对象:#{注解值.属性名字|param1.属性名字} -->
+    <select id="selectUserByUser" resultType="User">
+        select * from user where user_id = #{obj.userId}
+    </select>
+
+    <!-- Map:#{注解值.key|param1.key} -->
+    <select id="selectUserByMap" resultType="User">
+        select * from user where user_id = #{map.userId}
+    </select>
+
+    <!-- List:#{注解值[索引]|param1[索引]}  -->
+    <select id="selectUserByIds" resultType="User">
+        select * from user where user_id = #{ids[0]}
+    </select>
+
+</mapper>
