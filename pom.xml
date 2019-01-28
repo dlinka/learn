@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cr</groupId>
     <artifactId>learn</artifactId>
@@ -12,16 +13,31 @@
         <module>learn-time</module>
         <module>learn-path</module>
         <module>learn-jackson2</module>
-        <module>learn-springmvc</module>
+        <module>learn-spring</module>
+        <module>learn-mybatis</module>
+        <module>learn-pattern</module>
+        <module>learn-ehcache</module>
     </modules>
 
     <properties>
+        <junit.version>4.11</junit.version>
         <lombok.version>1.16.18</lombok.version>
-        <jackson2.version>2.9.1</jackson2.version>
+        <jackson.version>2.9.1</jackson.version>
+        <spring.version>3.2.18.RELEASE</spring.version>
+        <mybatis.version>3.4.1</mybatis.version>
+        <logback.version>1.2.3</logback.version>
+        <ehcache.version>3.6.1</ehcache.version>
+        <mysql.version>5.1.47</mysql.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -31,12 +47,49 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson2.version}</version>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>3.2.18.RELEASE</version>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -55,4 +108,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
