@@ -2,9 +2,26 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cr.dao.UserMapperResultMap">
+<mapper namespace="com.cr.dao.resultMap.ResultMapMapper">
 
-    <resultMap id="ResultMapAssociation" type="User">
+    <resultMap id="ResultMap" type="User">
+        <id column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="company_id" property="company.companyId"/>
+        <result column="company_name" property="company.companyName"/>
+        <result column="city_id" property="city.cityId"/>
+        <result column="city_name" property="city.cityName"/>
+    </resultMap>
+    <select id="selectResultMap" resultMap="ResultMap">
+        select user_id, name, nick_name, u.company_id as company_id, company_name, u.city_id as city_id, city_name
+        from user as u
+        inner join company as c1 on u.company_id = c1.company_id
+        inner join city as c2 on u.city_id = c2.city_id
+        where u.user_id = #{userId}
+    </select>
+
+    <resultMap id="ResultMapWithAssociation" type="User">
         <id column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="nick_name" property="nickName"/>
@@ -17,8 +34,7 @@
             <result column="city_name" property="cityName"/>
         </association>
     </resultMap>
-
-    <select id="selectResultMapAssociation" resultMap="ResultMapAssociation">
+    <select id="selectResultMapWithAssociation" resultMap="ResultMapWithAssociation">
         select user_id, name, nick_name, u.company_id as company_id, company_name, u.city_id as city_id, city_name
         from user as u
         inner join company as c1 on u.company_id = c1.company_id
@@ -26,15 +42,14 @@
         where u.user_id = #{userId}
     </select>
 
-    <resultMap id="ResultMapAssociationWithStep" type="User">
+    <resultMap id="ResultMapWithAssociationAndStep" type="User">
         <id column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="nick_name" property="nickName"/>
         <association property="company" select="com.cr.dao.CompanyMapper.selectCompanyById" column="company_id"/>
         <association property="city" select="com.cr.dao.CityMapper.selectCityById" column="city_id"/>
     </resultMap>
-
-    <select id="selectResultMapAssociationWithStep" resultMap="ResultMapAssociationWithStep">
+    <select id="selectResultMapWithAssociationAndStep" resultMap="ResultMapWithAssociationAndStep">
         select * from user where user_id = #{userId}
     </select>
 
