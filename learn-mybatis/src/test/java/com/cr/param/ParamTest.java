@@ -10,12 +10,13 @@ import com.cr.entity.User;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class ParamTest extends BaseTest {
 
     @Test
-    public void testSingleParam() {
+    public void testSingleParam() throws IOException {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             SingleParamMapper paramMapper = sqlSession.getMapper(SingleParamMapper.class);
@@ -44,7 +45,7 @@ public class ParamTest extends BaseTest {
     }
 
     @Test
-    public void testSingleParamUseAnnotation() {
+    public void testSingleParamUseAnnotation() throws IOException {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             SingleParamUseAnnotationMapper paramMapper = sqlSession.getMapper(SingleParamUseAnnotationMapper.class);
@@ -72,7 +73,7 @@ public class ParamTest extends BaseTest {
     }
 
     @Test
-    public void testMultiParam() {
+    public void testMultiParam() throws IOException {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             MultiParamMapper paramMapper = sqlSession.getMapper(MultiParamMapper.class);
@@ -93,7 +94,7 @@ public class ParamTest extends BaseTest {
     }
 
     @Test
-    public void testMultiParamUseAnnotation() {
+    public void testMultiParamUseAnnotation() throws IOException {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             MultiParamUseAnnotationMapper paramMapper = sqlSession.getMapper(MultiParamUseAnnotationMapper.class);
