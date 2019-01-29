@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class Company {
 
-    private int companyId;
+    private Integer companyId;
     private String companyName;
     private List<User> users;
 
