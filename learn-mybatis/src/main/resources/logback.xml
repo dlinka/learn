@@ -6,7 +6,6 @@
         </encoder>
     </appender>
 
-    <logger name="java.sql" level="DEBUG"/>
     <logger name="org.apache.ibatis" level="INFO"/>
 
     <root level="DEBUG">
