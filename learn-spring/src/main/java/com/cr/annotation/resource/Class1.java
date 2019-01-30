@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
- * @Resource标记属性的时候可以不用写get/set方法
+ * @Resource标记属性的时候可以不用写set方法
  */
 @Component
 public class Class1 {
