@@ -20,4 +20,8 @@ public class Class1 {
         System.out.println(class2 == null);
     }
 
+    public void testClass3() {
+        System.out.println(class3);
+    }
+
 }
