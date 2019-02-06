@@ -17,6 +17,7 @@
         <module>learn-mybatis</module>
         <module>learn-pattern</module>
         <module>learn-ehcache</module>
+        <module>learn-aspectj</module>
     </modules>
 
     <properties>
@@ -28,6 +29,7 @@
         <logback.version>1.2.3</logback.version>
         <ehcache.version>3.6.1</ehcache.version>
         <mysql.version>5.1.47</mysql.version>
+        <aspectj.version>1.9.2</aspectj.version>
     </properties>
 
     <dependencyManagement>
@@ -90,6 +92,16 @@
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
                 <version>${ehcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
