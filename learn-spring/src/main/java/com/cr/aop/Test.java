@@ -9,7 +9,10 @@ public class Test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("aop/application.xml");
         Class1 class1 = context.getBean("class1", Class1.class);
-        class1.test();
+        //class1.testBefore();
+        //System.out.println(class1.testAfterReturning());
+        //class1.testAfterThrowing();
+        class1.testAfter();
     }
 
 }
