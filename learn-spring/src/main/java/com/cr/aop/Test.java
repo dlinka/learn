@@ -12,7 +12,11 @@ public class Test {
         //class1.testBefore();
         //System.out.println(class1.testAfterReturning());
         //class1.testAfterThrowing();
-        class1.testAfter();
+        //class1.testAfter2();
+        //class1.testAfter1();
+        //class1.testAround1();
+        //class1.testAround2();
+        //System.out.println(class1.testAround3());
     }
 
 }

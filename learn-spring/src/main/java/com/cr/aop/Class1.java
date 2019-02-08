@@ -21,9 +21,27 @@ public class Class1 {
         System.out.println("test @AfterThrowing...");
     }
 
-    public void testAfter() {
+    public void testAfter1() {
+        System.out.println("test @After1...");
+    }
+
+    public void testAfter2() {
         int i = 1 / 0;
-        System.out.println("test @After...");
+        System.out.println("test @After2...");
+    }
+
+    public void testAround1() {
+        int i = 1 / 0;
+        System.out.println("test @Around1...");
+    }
+
+    public void testAround2() {
+        System.out.println("test @Around2...");
+    }
+
+    public int testAround3() {
+        System.out.println("test @Around3...");
+        return 1;
     }
 
 }
