@@ -9,11 +9,14 @@ public class Class1 {
         System.out.println("test @Before...");
     }
 
-    public Person testAfterReturning() {
-        System.out.println("test @AfterReturning...");
-        Person person = new Person();
-        person.setName("cr");
-        return person;
+    public Person testAfterReturning1() {
+        System.out.println("test @AfterReturning1...");
+        return new Person("cr");
+    }
+
+    public String testAfterReturning2() {
+        System.out.println("test @AfterReturning2...");
+        return "cr";
     }
 
     public void testAfterThrowing() {

@@ -11,12 +11,20 @@ public class Aspect1 {
         System.out.println("@Before log...");
     }
 
-    @AfterReturning(pointcut = "execution(* com.cr.aop.Class1.testAfterReturning(..))", returning = "obj")
-    public Person logAfterReturning(Person obj) {
+    @AfterReturning(pointcut = "execution(* com.cr.aop.Class1.testAfterReturning1(..))", returning = "obj")
+    public Person logAfterReturning1(Person obj) {
+        System.out.println("@AfterReturning log...");
         System.out.println("return - " + obj);
         obj.setName("CR");
+        return obj;  //返回值有效
+    }
+
+    @AfterReturning(pointcut = "execution(* com.cr.aop.Class1.testAfterReturning2(..))", returning = "obj")
+    public String logAfterReturning2(String obj) {
         System.out.println("@AfterReturning log...");
-        return new Person();  //返回值无效
+        System.out.println("return - " + obj);
+        obj = "CR";
+        return obj;  //返回值无效
     }
 
     @AfterThrowing(pointcut = "execution(* com.cr.aop.Class1.testAfterThrowing(..))", throwing = "ex")
