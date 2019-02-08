@@ -63,8 +63,7 @@ public class Aspect1 {
         int i = (int) jp.proceed();
         System.out.println("i - " + i);
         System.out.println("@Around log2...");
-        return 1024;
+        return 1024;  //返回值改变
     }
-
 
 }
