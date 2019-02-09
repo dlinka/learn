@@ -20,4 +20,9 @@ public class Class2 {
         System.out.println(str);
     }
 
+    public void testAfter(Person person, String str){
+        person.setName("CR");
+        str = "CR";
+    }
+
 }

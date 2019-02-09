@@ -2,15 +2,12 @@ package com.cr.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 
 import java.util.Arrays;
 
 @Aspect
-public class Aspect2 {
+public class AspectArgs {
 
     @Before("execution(* com.cr.aop.Class2.testBefore(..))")
     public void testBefore(JoinPoint jp){
@@ -43,6 +40,13 @@ public class Aspect2 {
         p.setName("CR");  //改变了
         args[1] = "bbb";  //改变了
         jp.proceed(args);
+    }
+
+    @After("execution(* com.cr.aop.Class2.testAfter(..))" + "&& args(person, str)")
+    public void testAfter(Person person, String str){
+        System.out.println("aop after");
+        System.out.println(person);
+        System.out.println(str);
     }
 
 }
