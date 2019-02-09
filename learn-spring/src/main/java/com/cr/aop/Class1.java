@@ -19,6 +19,11 @@ public class Class1 {
         return "cr";
     }
 
+    public Person testAfterReturning3() {
+        System.out.println("test @AfterReturning3...");
+        return new Person("cr");
+    }
+
     public void testAfterThrowing() {
         int i = 1 / 0;
         System.out.println("test @AfterThrowing...");
