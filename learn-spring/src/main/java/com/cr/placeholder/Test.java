@@ -7,9 +7,7 @@ public class Test {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("placeholder/application.xml");
-        System.out.println(context.getBean("class1", Class1.class).getName());
-        System.out.println(context.getBean("class2", Class2.class).getName());
-        System.out.println(context.getBean("class2", Class2.class).getPassword());
+        System.out.println(context.getBean("bean1", Bean1.class).getName());
     }
 
 }

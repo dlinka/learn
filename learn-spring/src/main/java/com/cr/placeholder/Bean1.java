@@ -1,6 +1,6 @@
 package com.cr.placeholder;
 
-public class Class1 {
+public class Bean1 {
 
     private String name;
 
