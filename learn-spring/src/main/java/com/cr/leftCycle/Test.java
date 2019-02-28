@@ -1,4 +1,4 @@
-package com.cr.leftcycle;
+package com.cr.leftCycle;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
