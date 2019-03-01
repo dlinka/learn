@@ -17,4 +17,8 @@ public class User implements Serializable {
     private Company company;
     private City city;
 
+    public User(Integer userId){
+        this.userId = userId;
+    }
+
 }

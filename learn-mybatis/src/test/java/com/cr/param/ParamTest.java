@@ -12,6 +12,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ParamTest extends BaseTest {
 
@@ -20,25 +23,12 @@ public class ParamTest extends BaseTest {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             SingleParamMapper paramMapper = sqlSession.getMapper(SingleParamMapper.class);
-
-            /*User user = paramMapper.selectUserById(1);
-            System.out.println(user);
-
-            List<User> users = paramMapper.selectUserByName("%girls%");
-            System.out.println(users);
-
-            User obj = new User();
-            obj.setUserId(1);
-            User user = paramMapper.selectUserByUser(obj);
-            System.out.println(user);
-
+            System.out.println(paramMapper.selectUserById(1));
+            System.out.println(paramMapper.selectUserByUser(new User(1)));
             Map<String, Object> map = new HashMap<>();
             map.put("userId", 1);
-            User user = paramMapper.selectUserByMap(map);
-            System.out.println(user);
-
-            User user = paramMapper.selectUserByIds(Arrays.asList(1, 2, 3));
-            System.out.println(user);*/
+            System.out.println(paramMapper.selectUserByMap(map));
+            System.out.println(paramMapper.selectUserByIds(Arrays.asList(1, 2, 3)));
         } finally {
             sqlSession.close();
         }
@@ -49,24 +39,12 @@ public class ParamTest extends BaseTest {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             SingleParamUseAnnotationMapper paramMapper = sqlSession.getMapper(SingleParamUseAnnotationMapper.class);
-            /*User user = paramMapper.selectUserById(1);
-            System.out.println(user);*/
-
-            /*List<User> users = paramMapper.selectUserByName("%girls%");
-            System.out.println(users);*/
-
-            /*User obj = new User();
-            obj.setUserId(1);
-            User user = paramMapper.selectUserByUser(obj);
-            System.out.println(user);*/
-
-            /*Map<String, Object> map = new HashMap<>();
+            System.out.println(paramMapper.selectUserById(1));
+            System.out.println(paramMapper.selectUserByUser(new User(1)));
+            Map<String, Object> map = new HashMap<>();
             map.put("userId", 1);
-            User user = paramMapper.selectUserByMap(map);
-            System.out.println(user);*/
-
-            /*User user = paramMapper.selectUserByIds(Arrays.asList(1, 2, 3));
-            System.out.println(user);*/
+            System.out.println(paramMapper.selectUserByMap(map));
+            System.out.println(paramMapper.selectUserByIds(Arrays.asList(1, 2, 3)));
         } finally {
             sqlSession.close();
         }
@@ -77,17 +55,9 @@ public class ParamTest extends BaseTest {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             MultiParamMapper paramMapper = sqlSession.getMapper(MultiParamMapper.class);
-
-            /*User user = paramMapper.selectUser1(1, "girls");
-            System.out.println(user);*/
-
-            /*Company company = new Company();
-            company.setCompanyId(1);
-            User user = paramMapper.selectUser2(1, company);
-            System.out.println(user);*/
-
-            /*User user = paramMapper.selectUser3(Arrays.asList(1, 2, 3), "girls");
-            System.out.println(user);*/
+            System.out.println(paramMapper.selectUser1(1, "girl"));
+            System.out.println(paramMapper.selectUser2(1, new Company(1)));
+            System.out.println(paramMapper.selectUser3(Arrays.asList(1, 2, 3), "girl"));
         } finally {
             sqlSession.close();
         }
@@ -98,19 +68,9 @@ public class ParamTest extends BaseTest {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
         try {
             MultiParamUseAnnotationMapper paramMapper = sqlSession.getMapper(MultiParamUseAnnotationMapper.class);
-
-            /*User user = paramMapper.selectUser1(1, "girls");
-            System.out.println(user);*/
-
-            /*Company company = new Company();
-            company.setCompanyId(1);
-            User user = paramMapper.selectUser2(1, company);
-            System.out.println(user);*/
-
-            /*Company company = new Company();
-            company.setCompanyId(1);
-            User user = paramMapper.selectUser3(1, company);
-            System.out.println(user);*/
+            System.out.println(paramMapper.selectUser1(1, "girl"));
+            System.out.println(paramMapper.selectUser2(1, new Company(1)));
+            System.out.println(paramMapper.selectUser3(1, new Company(1)));
         } finally {
             sqlSession.close();
         }

@@ -16,7 +16,7 @@
 
     <!-- Available parameters are [0, 1, param1, param2] -->
     <select id="selectUser3" resultType="User">
-        select * from user where user_id = #{param1[0]} and name = #{1}
+        select * from user where user_id = #{0[0]} and name = #{1}
     </select>
 
 </mapper>

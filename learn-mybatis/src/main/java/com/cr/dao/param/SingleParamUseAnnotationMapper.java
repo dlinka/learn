@@ -10,12 +10,10 @@ public interface SingleParamUseAnnotationMapper {
 
     User selectUserById(@Param("userId") int userId);
 
-    List<User> selectUserByName(@Param("name") String name);
-
-    User selectUserByUser(@Param("obj") User obj);
+    User selectUserByUser(@Param("user") User user);
 
     User selectUserByMap(@Param("map") Map<String, Object> map);
 
-    User selectUserByIds(@Param("ids") List<Integer> ids);
+    User selectUserByIds(@Param("userIds") List<Integer> userIds);
 
 }

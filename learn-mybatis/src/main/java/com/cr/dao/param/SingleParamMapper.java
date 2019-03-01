@@ -9,9 +9,7 @@ public interface SingleParamMapper {
 
     User selectUserById(int userId);
 
-    List<User> selectUserByName(String name);
-
-    User selectUserByUser(User obj);
+    User selectUserByUser(User user);
 
     User selectUserByMap(Map<String, Object> map);
 

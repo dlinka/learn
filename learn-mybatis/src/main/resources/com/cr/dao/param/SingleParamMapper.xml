@@ -9,11 +9,6 @@
         select * from user where user_id = #{userId}
     </select>
 
-    <!-- String:#{任意名字} -->
-    <select id="selectUserByName" resultType="User">
-        select * from user where name like #{name}
-    </select>
-
     <!-- 对象:#{属性名字} -->
     <select id="selectUserByUser" resultType="User">
         select * from user where user_id = #{userId}
