@@ -3,6 +3,5 @@ package com.cr.annotation.autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Class222 implements Class2 {
-
+public class Bean22 implements Bean2 {
 }

@@ -1,8 +1,7 @@
-package com.cr.annotation.resource;
+package com.cr.annotation.autowired;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Class2 {
-
+public class Bean3 {
 }
