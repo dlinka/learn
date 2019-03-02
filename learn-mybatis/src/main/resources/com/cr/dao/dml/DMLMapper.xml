@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cr.dao.dml.DMLMapper">
+
+    <insert id="addUser">
+        insert into user(name, nick_name) values(#{name}, #{nickName})
+    </insert>
+
+    <insert id="addUserWithKey" useGeneratedKeys="true" keyProperty="userId">
+        insert into user(name, nick_name) values(#{name}, #{nickName})
+    </insert>
+
+    <update id="updateUser">
+        update user set name = #{name}, nick_name = #{nickName} where user_id = #{userId}
+    </update>
+
+    <delete id="deleteUser">
+        delete from user where user_id = #{userId}
+    </delete>
+
+</mapper>
