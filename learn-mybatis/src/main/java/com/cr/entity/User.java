@@ -21,4 +21,12 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
+    public User(Integer userId, String name, String nickName){
+        this.userId = userId;
+        this.name = name;
+        this.nickName = nickName;
+    }
+
+
+
 }
