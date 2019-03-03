@@ -4,24 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cr.dao.resultMap.ResultMapMapper">
 
-    <resultMap id="ResultMap" type="User">
+    <resultMap id="ResultMap1" type="User">
         <id column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="nick_name" property="nickName"/>
         <result column="company_id" property="company.companyId"/>
         <result column="company_name" property="company.companyName"/>
-        <result column="city_id" property="city.cityId"/>
-        <result column="city_name" property="city.cityName"/>
     </resultMap>
-    <select id="selectResultMap" resultMap="ResultMap">
-        select user_id, name, nick_name, u.company_id as company_id, company_name, u.city_id as city_id, city_name
+    <select id="selectUser1" resultMap="ResultMap1">
+        select user_id, name, nick_name, u.company_id as company_id, company_name
         from user as u
-        inner join company as c1 on u.company_id = c1.company_id
-        inner join city as c2 on u.city_id = c2.city_id
-        where u.user_id = #{userId}
+        inner join company as c on u.company_id = c.company_id
+        where user_id = #{userId}
     </select>
 
-    <resultMap id="ResultMapWithAssociation" type="User">
+    <resultMap id="ResultMap2" type="User">
         <id column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="nick_name" property="nickName"/>
@@ -29,28 +26,51 @@
             <id column="company_id" property="companyId"/>
             <result column="company_name" property="companyName"/>
         </association>
-        <association property="city" javaType="City">
-            <id column="city_id" property="cityId"/>
-            <result column="city_name" property="cityName"/>
-        </association>
     </resultMap>
-    <select id="selectResultMapWithAssociation" resultMap="ResultMapWithAssociation">
-        select user_id, name, nick_name, u.company_id as company_id, company_name, u.city_id as city_id, city_name
+    <select id="selectUser2" resultMap="ResultMap2">
+        select user_id, name, nick_name, u.company_id as company_id, company_name
         from user as u
-        inner join company as c1 on u.company_id = c1.company_id
-        inner join city as c2 on u.city_id = c2.city_id
-        where u.user_id = #{userId}
+        inner join company as c on u.company_id = c.company_id
+        where user_id = #{userId}
     </select>
 
-    <resultMap id="ResultMapWithAssociationAndStep" type="User">
+    <resultMap id="ResultMap3" type="User">
         <id column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="nick_name" property="nickName"/>
-        <association property="company" select="com.cr.dao.CompanyMapper.selectCompanyById" column="company_id"/>
-        <association property="city" select="com.cr.dao.CityMapper.selectCityById" column="city_id"/>
+        <association property="company"
+                     select="com.cr.dao.resultMap.CompanyMapper.selectCompanyById"
+                     column="company_id"/>
     </resultMap>
-    <select id="selectResultMapWithAssociationAndStep" resultMap="ResultMapWithAssociationAndStep">
+    <select id="selectUser3" resultMap="ResultMap3">
         select * from user where user_id = #{userId}
+    </select>
+
+    <resultMap id="ResultMap4" type="Company">
+        <id column="company_id" property="companyId"/>
+        <result column="company_name" property="companyName"/>
+        <collection property="users" ofType="User">
+            <id column="user_id" property="userId"/>
+            <result column="name" property="name"/>
+            <result column="nick_name" property="nickName"/>
+        </collection>
+    </resultMap>
+    <select id="selectCompany1" resultMap="ResultMap4">
+        select c.company_id, company_name, user_id, name, nick_name
+        from company as c
+        inner join user u on c.company_id = u.company_id
+        where c.company_id = #{companyId}
+    </select>
+
+    <resultMap id="ResultMap5" type="Company">
+        <id column="company_id" property="companyId"/>
+        <result column="company_name" property="companyName"/>
+        <collection property="users"
+                    select="com.cr.dao.resultMap.UserMapper.selectUsersByCompanyId"
+                    column="company_id"/>
+    </resultMap>
+    <select id="selectCompany2" resultMap="ResultMap5">
+        select * from company where company_id = #{companyId}
     </select>
 
 </mapper>

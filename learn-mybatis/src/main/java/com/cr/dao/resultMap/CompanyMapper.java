@@ -1,4 +1,4 @@
-package com.cr.dao;
+package com.cr.dao.resultMap;
 
 import com.cr.entity.Company;
 

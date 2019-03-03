@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cr.dao.CityMapper">
+<mapper namespace="com.cr.dao.resultMap.CompanyMapper">
 
-    <select id="selectCityById" resultType="City">
-        select * from city where city_id = #{cityId}
+    <select id="selectCompanyById" resultType="Company">
+        select * from company where company_id = #{companyId}
     </select>
 
 </mapper>

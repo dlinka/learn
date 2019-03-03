@@ -1,13 +1,18 @@
 package com.cr.dao.resultMap;
 
+import com.cr.entity.Company;
 import com.cr.entity.User;
 
 public interface ResultMapMapper {
 
-    User selectResultMap(int userId);
+    User selectUser1(int userId);
 
-    User selectResultMapWithAssociation(int userId);
+    User selectUser2(int userId);
 
-    User selectResultMapWithAssociationAndStep(int userId);
+    User selectUser3(int userId);
+
+    Company selectCompany1(int companyId);
+
+    Company selectCompany2(int companyId);
 
 }
