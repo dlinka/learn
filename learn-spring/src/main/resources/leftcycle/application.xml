@@ -34,10 +34,9 @@
     <bean id="bean2" class="com.cr.leftCycle.demo3.Bean2">
         <property name="bean1" ref="bean1"></property>
     </bean>
-    <bean id="bean1" class="com.cr.leftCycle.demo3.Bean1"></bean>
     <bean id="bean3" class="com.cr.leftCycle.demo3.Bean3"></bean>
+    <bean id="bean1" class="com.cr.leftCycle.demo3.Bean1"></bean>
     -->
-
 
     <!--
     output
