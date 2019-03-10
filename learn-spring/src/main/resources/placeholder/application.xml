@@ -5,10 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:**/*.properties"/>
+    <context:property-placeholder location="classpath:placeholder/placeholder.properties"/>
 
     <bean id="bean1" class="com.cr.placeholder.Bean1">
-        <property name="name" value="${test.name}"></property>
+        <property name="name" value="${placeholder.name}"></property>
     </bean>
 
 </beans>
