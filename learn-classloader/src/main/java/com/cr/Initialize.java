@@ -19,12 +19,12 @@ public class Initialize {
         System.out.println("val2 = " + val2);
     }
 
-    public static void main(String[] args) {
-        staticFunction();
-    }
-
     public static void staticFunction() {
         System.out.println("静态方法");
+    }
+
+    public static void main(String[] args) {
+        staticFunction();
     }
 
 }
